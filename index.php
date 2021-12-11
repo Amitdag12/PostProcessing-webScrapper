@@ -63,14 +63,8 @@ function HtmlToJson($htmlString)
         //error_log($htmlString);
         // $htmlString=substr($htmlString, 0, FindFreeTag($htmlString));
         error_log("5:".$htmlString);
-        if (!array_key_exists("content", $tagObject)) {
-            $tagObject["content"]=GetTextBefore("<", $htmlString);
-        }
-        $htmlString=substr($htmlString, strpos($htmlString, "</".$result["tagAtrributes"][0].">")+strlen($result["tagAtrributes"][0])+3);
+        $htmlString=substr($htmlString, strpos($htmlString, "</".$result["tagAtrributes"][0].">")+strlen($result["tagAtrributes"][0])+3);//remove used data
         error_log("6:".$htmlString);
-    }
-    if ($tagObject["tagName"]=="p") {
-        error_log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
     }
     if (!array_key_exists("content", $tagObject)) {
         $tagObject["content"]=GetTextBefore("<", $htmlString);
@@ -140,7 +134,7 @@ function CheckIfAnyMore($html)
     if ($index === false) {
         return false;
     }
-    echo $index."    ".$html[$index]."   ".$html[$index+1]."        ".json_encode($html[$index+1]!="/"&&$index !== false)."</br> ";
+    // echo $index."    ".$html[$index]."   ".$html[$index+1]."        ".json_encode($html[$index+1]!="/"&&$index !== false)."</br> ";
     //  error_log("-------------".$index);
     return $html[$index+1]!="/";
 }
