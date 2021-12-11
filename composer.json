@@ -1,0 +1,23 @@
+{
+    "name": "amit/post-srocess-scrapper",
+    "description": "web scrapper for post processed websites",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Amit\\PostSrocessScrapper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amitdag12",
+            "email": "gildag67@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "symfony/panther": "^2.0"
+    },
+    "require-dev": {
+        "dbrekelmans/bdi": "^1.0"
+    }
+}
