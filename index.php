@@ -161,9 +161,10 @@ function remove_html_comments($content = '')
 }
 function FindFreeTag($html)
 {
-    error_log($html);
+    
     $count=0;
     while (CheckIfAnyMore($html)) {
+        error_log($html);
         $indexStart=strpos($html, "<");
         $indexEnd=strpos($html, "</");
         if($indexEnd===false){
