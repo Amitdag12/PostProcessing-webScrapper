@@ -148,12 +148,14 @@ function ExplodeTag($tag)
 }
 function CheckIfAnyMore($html)
 {
+    error_log("A");
     $index=strpos($html, "<");
     if ($index === false) {
         return false;
     }
     // echo $index."    ".$html[$index]."   ".$html[$index+1]."        ".json_encode($html[$index+1]!="/"&&$index !== false)."</br> ";
     //  error_log("-------------".$index);
+    error_log("B");
     return $html[$index+1]!="/";
 }
 function remove_html_comments($content = '')
