@@ -154,6 +154,8 @@ function CheckIfAnyMore($html)
 }
 function remove_html_comments($content = '')
 {
+    $content = str_replace("!DOCTYPE","",$content);
+    $content = str_replace("<br>","",$content);
     return preg_replace('/<!--(.|\s)*?-->/', '', $content);
 }
 function FindFreeTag($html)
