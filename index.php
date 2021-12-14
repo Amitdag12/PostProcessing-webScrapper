@@ -1,21 +1,24 @@
 <?php
-$tag='<table>
-<tr>
-  <th>Company</th>
-  <th>Contact</th>
-  <th>Country</th>
-</tr>
-<tr>
-  <td>Alfreds Futterkiste</td>
-  <td>Maria Anders</td>
-  <td>Germany</td>
-</tr>
-<tr>
-  <td>Centro comercial Moctezuma</td>
-  <td>Francisco Chang</td>
-  <td>Mexico</td>
-</tr>
-</table>';
+$tag='<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Submit Button</h2>
+
+<p>The <strong>input type="submit"</strong> defines a button for submitting form data to a form-handler:</p>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click "Submit", the form-data will be sent to a page called "/action_page.php".</p>
+
+</body>
+</html>';
 //error_log($tag);
 error_log(json_encode(HtmlToJson($tag)));
 function GetWebsiteHtml($url)
