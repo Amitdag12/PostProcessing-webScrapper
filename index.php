@@ -172,7 +172,12 @@ function FindFreeTag($html)
         error_log($html);
         $indexStart=strpos($html, "<");
         $tag=GetTextAfter("<",$html);
-        $tag=GetTextBefore(' ',$tag);
+        if(strpos($tag,' ')>strpos($tag,'>')){
+            $tag=GetTextBefore('>',$tag);
+        }else{
+            $tag=GetTextBefore(' ',$tag);
+        }
+        
 
         $indexEnd=strpos($html, "</".$tag);
         error_log("search:"."</".$tag);
