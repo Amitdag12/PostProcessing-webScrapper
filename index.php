@@ -20,7 +20,7 @@ $tag='<!DOCTYPE html>
 </body>
 </html>';
 //error_log($tag);
-error_log(json_encode(HtmlToJson(GetWebsiteHtml("https://finance.yahoo.com/"))));
+error_log(json_encode(HtmlToJson(GetWebsiteHtml("https://finance.yahoo.com"))));
 function GetWebsiteHtml($url)
 {
     require 'vendor/autoload.php';
