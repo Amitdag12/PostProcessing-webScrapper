@@ -32,6 +32,7 @@ function GetWebsiteHtml($url)
 }
 function HtmlToJson($htmlString)
 {
+    error_log($htmlString);
     $htmlString=remove_html_comments($htmlString);//removes comments
     $htmlString=GetTextAfter("<", $htmlString);//gets tag text
     $tag=GetTextBefore(">", $htmlString);//gets tag text
