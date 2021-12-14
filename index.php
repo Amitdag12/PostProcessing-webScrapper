@@ -175,6 +175,7 @@ function FindFreeTag($html)
         $tag=GetTextBefore(' ',$tag);
 
         $indexEnd=strpos($html, "</".$tag);
+        error_log("search:"."</".$tag);
         if($indexEnd===false){
             error_log("AB");
         }
