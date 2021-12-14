@@ -1,10 +1,21 @@
 <?php
-$tag='<div id="myModal" class="modal">
-<div class="modal-content">
-  <span class="close">&times;</span>
-  <p>Some text in the Modal..</p>
-</div>
-</div>';
+$tag='<table>
+<tr>
+  <th>Company</th>
+  <th>Contact</th>
+  <th>Country</th>
+</tr>
+<tr>
+  <td>Alfreds Futterkiste</td>
+  <td>Maria Anders</td>
+  <td>Germany</td>
+</tr>
+<tr>
+  <td>Centro comercial Moctezuma</td>
+  <td>Francisco Chang</td>
+  <td>Mexico</td>
+</tr>
+</table>';
 //error_log($tag);
 error_log(json_encode(HtmlToJson($tag)));
 function GetWebsiteHtml($url)
