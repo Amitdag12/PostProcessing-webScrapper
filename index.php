@@ -38,18 +38,14 @@ function HtmlToJson($htmlString)
     $tag=GetTextBefore(">", $htmlString);//gets tag text
     $htmlString="<".$htmlString;
     //  $tag=HandleMissingSpace($tag);
-    error_log(3);
     $tagAttributes=ExplodeTag($tag);//gets tag object attributes
-    error_log(4);
     $tagContent ="";
     $tagObject=array();
     $tagObject["tagName"]=$tagAttributes[0];
     //$tagAttributes=array_shift($tagAttributes);
     $tagObject["tagAtrributes"]=$tagAttributes;
     $tagObject["children"]=array();
-     error_log(1);
     $htmlString=DeleteTextBetween("<", ">", $htmlString);//deletes tag
-    error_log(2);
     if (!CheckIfAnyMore($htmlString)) {
         $tagObject["content"]=GetTextBefore("<", $htmlString);
     }
@@ -148,16 +144,13 @@ function ExplodeTag($tag)
 }
 function CheckIfAnyMore($html)
 {
-    error_log("A");
     $index=strpos($html, "<");
     if ($index === false) {
         return false;
     }
     // echo $index."    ".$html[$index]."   ".$html[$index+1]."        ".json_encode($html[$index+1]!="/"&&$index !== false)."</br> ";
     //  error_log("-------------".$index);
-    error_log("B");
     $result=$html[$index+1]!="/";
-    error_log("C");
     return $html[$index+1]!="/";
 }
 function remove_html_comments($content = '')
@@ -172,6 +165,9 @@ function FindFreeTag($html)
     while (CheckIfAnyMore($html)) {
         $indexStart=strpos($html, "<");
         $indexEnd=strpos($html, "</");
+        if($indexEnd===false){
+            error_log("AB");
+        }
         $html[$indexStart]="A";
         $html[$indexEnd]="B";
         $html[$indexEnd+1]="B";
