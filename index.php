@@ -38,15 +38,18 @@ function HtmlToJson($htmlString)
     $tag=GetTextBefore(">", $htmlString);//gets tag text
     $htmlString="<".$htmlString;
     //  $tag=HandleMissingSpace($tag);
+    error_log(3);
     $tagAttributes=ExplodeTag($tag);//gets tag object attributes
+    error_log(4);
     $tagContent ="";
     $tagObject=array();
     $tagObject["tagName"]=$tagAttributes[0];
     //$tagAttributes=array_shift($tagAttributes);
     $tagObject["tagAtrributes"]=$tagAttributes;
     $tagObject["children"]=array();
-    // error_log($htmlString);
+     error_log(1);
     $htmlString=DeleteTextBetween("<", ">", $htmlString);//deletes tag
+    error_log(2);
     if (!CheckIfAnyMore($htmlString)) {
         $tagObject["content"]=GetTextBefore("<", $htmlString);
     }
