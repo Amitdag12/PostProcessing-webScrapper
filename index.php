@@ -158,6 +158,7 @@ function remove_html_comments($content = '')
     $content = str_replace("<!DOCTYPE html>","",$content);
     $content = str_replace("<br>","",$content);
     $content = str_replace("<strong>","",$content);
+    $content = str_replace("</strong>","",$content);
     return preg_replace('/<!--(.|\s)*?-->/', '', $content);
 }
 function FindFreeTag($html)
