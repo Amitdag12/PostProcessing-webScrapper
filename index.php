@@ -46,6 +46,9 @@ function HtmlToJson($htmlString)
     $tagObject["tagAtrributes"]=$tagAttributes;
     $tagObject["children"]=array();
     $htmlString=DeleteTextBetween("<", ">", $htmlString);//deletes tag
+    if(strpos($htmlString,"</".$tagObject["tagName"].">")===false){
+        return  $tagObject;
+    }
     if (!CheckIfAnyMore($htmlString)) {
         $tagObject["content"]=GetTextBefore("<", $htmlString);
     }
