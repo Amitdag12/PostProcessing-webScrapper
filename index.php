@@ -156,6 +156,8 @@ function CheckIfAnyMore($html)
     // echo $index."    ".$html[$index]."   ".$html[$index+1]."        ".json_encode($html[$index+1]!="/"&&$index !== false)."</br> ";
     //  error_log("-------------".$index);
     error_log("B");
+    $result=$html[$index+1]!="/";
+    error_log("C");
     return $html[$index+1]!="/";
 }
 function remove_html_comments($content = '')
