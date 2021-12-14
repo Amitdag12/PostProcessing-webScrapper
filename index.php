@@ -171,7 +171,10 @@ function FindFreeTag($html)
     while (CheckIfAnyMore($html)) {
         error_log($html);
         $indexStart=strpos($html, "<");
-        $indexEnd=strpos($html, "</");
+        $tag=GetTextAfter("<",$html);
+        $tag=GetTextBefore(' ',$tag);
+
+        $indexEnd=strpos($html, "</".$tag);
         if($indexEnd===false){
             error_log("AB");
         }
